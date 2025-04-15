@@ -19,37 +19,36 @@
         .wave path {
             stroke: <%= secondaryColor %>;
             stroke-width: 3px;
-            stroke-linecap: round; /* Adicionado para pontas arredondadas */
             fill: none;
         }
         i, .footer-text a, strong, infosOneTexts h1 {
-            color: <%= secondaryColor %>; /* Usa a cor secundária dinâmica */
+            color: <%= secondaryColor %>; 
         }
-        /* Estilização da barra de rolagem para navegadores WebKit (Chrome, Edge, Safari) */
+        
         ::-webkit-scrollbar {
-            width: 12px; /* Largura da barra de rolagem */
-            background-color: <%= dominantColor %>; /* Fundo da barra */
+            width: 12px; 
+            background-color: <%= dominantColor %>; 
         }
 
         ::-webkit-scrollbar-track {
-            background-color: <%= dominantColor %>; /* Fundo do trilho */
-            border-radius: 10px; /* Cantos arredondados do trilho */
+            background-color: <%= dominantColor %>; 
+            border-radius: 10px; 
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: <%= secondaryColor %>; /* Cor da barra de rolagem */
-            border-radius: 10px; /* Cantos arredondados da barra */
-            border: 2px solid <%= dominantColor %>; /* Borda para criar um espaço entre a barra e o trilho */
+            background-color: <%= secondaryColor %>; 
+            border-radius: 10px; 
+            border: 2px solid <%= dominantColor %>; 
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            opacity: 0.8; /* Efeito ao passar o mouse */
+            opacity: 0.8; 
         }
 
-        /* Estilização para Firefox */
+        
         html {
-            scrollbar-width: thin; /* Torna a barra mais fina */
-            scrollbar-color: <%= secondaryColor %> <%= dominantColor %>; /* Cor da barra e do trilho */
+            scrollbar-width: thin; 
+            scrollbar-color: <%= secondaryColor %> <%= dominantColor %>; 
         }
     </style>
 </head>
