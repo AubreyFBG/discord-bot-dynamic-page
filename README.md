@@ -8,17 +8,22 @@ A dynamic Discord bot page generator that adapts its layout and colors based on 
 git clone https://github.com/AubreyFBG/Discord-Bot-Dynamic-Page.git
 ```
 
-2. Download the required dependencies:  
+2. Change .env with your credentials: 
+```
+TOKEN=Token your bot
+SERVER_SUPPORT_LINK=Invite link server support if you have it
+```
+3. Download the required dependencies:  
 ```
 npm install
 ```
 
-3. Start project:  
+4. Start project:  
 ```
 node .
 ```
 
-4. Open the project in browser:  
+5. Open the project in browser:  
 ```
 http://localhost:8080/
 ```
