@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/x-icon" href=<%= clientAvatar %>>
+    <title><%= clientName %></title>
+    <style>
+        body {
+            background-color: <%= dominantColor %>;
+            color: <%= isDarkColorPrimary ? 'white' : 'black' %>;
+        }
+        .infosOneTexts button, .server button{
+            background-color: <%= secondaryColor %>;
+            color: <%= isDarkColorSecondary ? 'white' : 'black' %>;
+        }
+        .wave path {
+            stroke: <%= secondaryColor %>;
+            stroke-width: 3px;
+            stroke-linecap: round; /* Adicionado para pontas arredondadas */
+            fill: none;
+        }
+        i, .footer-text a, strong, infosOneTexts h1 {
+            color: <%= secondaryColor %>; /* Usa a cor secundária dinâmica */
+        }
+        /* Estilização da barra de rolagem para navegadores WebKit (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar {
+            width: 12px; /* Largura da barra de rolagem */
+            background-color: <%= dominantColor %>; /* Fundo da barra */
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: <%= dominantColor %>; /* Fundo do trilho */
+            border-radius: 10px; /* Cantos arredondados do trilho */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: <%= secondaryColor %>; /* Cor da barra de rolagem */
+            border-radius: 10px; /* Cantos arredondados da barra */
+            border: 2px solid <%= dominantColor %>; /* Borda para criar um espaço entre a barra e o trilho */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            opacity: 0.8; /* Efeito ao passar o mouse */
+        }
+
+        /* Estilização para Firefox */
+        html {
+            scrollbar-width: thin; /* Torna a barra mais fina */
+            scrollbar-color: <%= secondaryColor %> <%= dominantColor %>; /* Cor da barra e do trilho */
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    <header>
+        <ul>   
+            <a href="/"><img src=<%= clientAvatar %> alt=""></a>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#resources">Recursos</a></li>
+            <% if(serverSupportLinkHas){ %>
+            <li><a href="#server">Servidor</a></li>
+            <% } %>
+
+        </ul>
+    </header>
+    <div class="infosOne">
+        <div class="infosOneTexts">
+            <h1><%= clientName %></h1>
+            <p><strong><%= clientName %></strong> é a solução definitiva para quem busca eficiência, automação e praticidade. Com funcionalidades avançadas, personalização intuitiva e integração com diversas plataformas, ele se adapta perfeitamente às suas necessidades. Seguro, confiável e fácil de usar, <strong><%= clientName %></strong> transforma a experiência do usuário, otimizando processos e garantindo o melhor desempenho.</p>
+                <a href=<%= inviteLink %>><button>Adicionar ao seu servidor</button></a>
+        </div>
+        <img class="infosOneImage" src=<%= clientAvatar %> alt="">
+    </div>
+    <div id="sobre" class="aboutMe">
+        <div class="texts">
+            <h1><i class="bi bi-info-circle" style="font-size: 55px; margin-right: 20px;"></i>Sobre mim</h1>
+            <p>Estou no ar desde <strong><%= dateCreate %></strong> e já se passaram <strong><%= dateDaysAgo %> dias</strong> desde então. Meu nome é <strong><%= clientName %></strong> e atualmente estou presente em <strong><%= servers %> servidores</strong>, com um total de <strong><%= users %> usuários</strong>. Desde o início, minha jornada tem sido marcada pela evolução contínua, adaptação e aprimoramento. Minha existência é dedicada a oferecer soluções inovadoras, facilitando processos e otimizando experiências. Cada dia representa um novo aprendizado e uma nova oportunidade de crescimento.</p>
+        </div>
+    </div>
+    <div id="resources" class="resources">
+        <div class="texts">
+            <h1><i class="bi bi-tools" style="font-size: 55px; margin-right: 20px;"></i>Recursos</h1>
+            <p>O <strong><%= clientName %></strong> traz eficiência e diversão para seu servidor no Discord com recursos práticos e personalizáveis. Veja os principais:</p>
+            <ul>
+                <li><i class="bi bi-shield-shaded" style="font-size: 55px; margin-right: 10px;"></i> Moderação Inteligente</li>
+                <li><i class="bi bi-robot" style="font-size: 55px; margin-right: 10px;"></i> Automação de Tarefas</li>
+                <li><i class="bi bi-emoji-laughing" style="font-size: 55px; margin-right: 10px;"></i> Comandos de Diversão</li>
+                <li><i class="bi bi-music-note-beamed" style="font-size: 55px; margin-right: 10px;"></i> Música e Entretenimento</li>
+                <li><i class="bi bi-gear" style="font-size: 55px; margin-right: 10px;"></i> Personalização Avançada</li>
+            </ul>
+            <p>Adicione o <strong><%= clientName %></strong> e transforme sua comunidade!</p>
+        </div>
+    </div>
+    <% if(serverSupportLinkHas){ %>
+    <div id="server" class="server">
+            <div class="texts">
+                <h1><i class="bi bi-globe" style="font-size: 55px; margin-right: 20px;"></i>Servidor de Suporte</h1>
+                <p>Junte-se ao nosso <strong>servidor de suporte</strong> no Discord para receber as <strong>atualizações mais recentes</strong> de <strong><%= clientName %></strong>, além de suporte exclusivo e interação com a comunidade!</p>
+                <ul>
+                    <li><i class="bi bi-bell" style="font-size: 55px;"></i> Atualizações em Tempo Real</li>
+                    <li><i class="bi bi-headset" style="font-size: 55px;"></i> Suporte Dedicado</li>
+                    <li><i class="bi bi-star" style="font-size: 55px;"></i> Eventos Exclusivos</li>
+                    <li><i class="bi bi-chat-dots" style="font-size: 55px;"></i> Feedback Direto</li>
+                </ul>
+                <div class="infosOneTexts">
+                    <a href=<%= serverSupportLink %>><button>Juntar-se ao Servidor de Suporte</button></a>
+                </div>
+            </div>
+    </div>
+    <% } %>
+
+    <footer class="footer">
+        <svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none">
+            <path d="M0,30 C150,50 250,10 360,30 C470,50 570,10 720,30 C870,50 970,10 1080,30 C1190,50 1290,10 1440,30" />
+        </svg>
+        <div class="footer-text">2025 Dev. <a href="https://github.com/AubreyFBG">Aubrey</a> & <%= clientName %> All Rights Reserved</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 120,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
